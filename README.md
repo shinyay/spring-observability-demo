@@ -1,4 +1,4 @@
-# Name
+# Spring Observability Demo
 
 Overview
 
@@ -6,6 +6,63 @@ Overview
 
 ## Demo
 
+### Actuator
+
+```application.yml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+```
+
+```
+$ curl -XGET http://localhost:8080/actuator|jq
+
+{
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/actuator",
+      "templated": false
+    },
+    "beans": {
+      "href": "http://localhost:8080/actuator/beans",
+      "templated": false
+    },
+    "caches-cache": {
+      "href": "http://localhost:8080/actuator/caches/{cache}",
+      "templated": true
+    },
+  :
+  :
+    "metrics": {
+      "href": "http://localhost:8080/actuator/metrics",
+      "templated": false
+    },
+    "metrics-requiredMetricName": {
+      "href": "http://localhost:8080/actuator/metrics/{requiredMetricName}",
+      "templated": true
+    },
+    "scheduledtasks": {
+      "href": "http://localhost:8080/actuator/scheduledtasks",
+      "templated": false
+    },
+    "mappings": {
+      "href": "http://localhost:8080/actuator/mappings",
+      "templated": false
+    }
+  }
+}
+```
+
+```
+$ curl -XGET http://localhost:8080/actuator|jq .[].prometheus
+
+{
+  "href": "http://localhost:8080/actuator/prometheus",
+  "templated": false
+}
+```
 ## Features
 
 - feature:1
