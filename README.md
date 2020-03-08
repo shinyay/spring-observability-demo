@@ -1,14 +1,18 @@
 # Spring Observability Demo
 
-Overview
+- [Micrometer](https://micrometer.io)
+- [Prometheus](https://prometheus.io/)
+- [Grafana](https://grafana.com/)
 
 ## Description
 
 ## Demo
 
-### 1. Spring Actuator
+### 1. Spring Boot Actuator
 
 Enable spring actuator endpoint on `application.yml`
+
+- [Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints)
 
 ```yaml
 management:
@@ -18,7 +22,11 @@ management:
         include: "*"
 ```
 
-#### 1.1. Actuator Endpoint
+You can see check application information exposed under default prefix `/actuator`
+
+- http://localhost:8080/actuator
+
+#### 1.1. Access Actuator Endpoint
 
 ```
 $ curl -XGET http://localhost:8080/actuator | jq
@@ -102,6 +110,8 @@ $ open http://localhost:9090/targets
 ```
 ![prometheus-target](images/prometheus-target.png)
 ![prom-graph-cpu-usage](images/prom-graph-cpu-usage.png)
+
+### 3. Grafana
 
 ## Features
 
