@@ -101,6 +101,7 @@ prom/prometheus:v2.13.1 \
 $ open http://localhost:9090/targets
 ```
 ![prometheus-target](images/prometheus-target.png)
+![prom-graph-cpu-usage](images/prom-graph-cpu-usage.png)
 
 ## Features
 
