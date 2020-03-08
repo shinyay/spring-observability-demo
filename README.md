@@ -2,7 +2,7 @@
 
 - [Micrometer](https://micrometer.io)
 - [Prometheus](https://prometheus.io/)
-- [Grafana](https://grafana.com/)
+- [Grafana](https://grafana.com/docs/grafana/latest/)
 
 ## Description
 
