@@ -90,6 +90,8 @@ $ curl -XGET http://localhost:8080/actuator|jq .[].prometheus
 
 ### 2. Prometheus
 
+Prometheus is a time-series database that stores the metric data by pulling it periodically over HTTP. It uses a built-in data scraper.
+
 #### 2.1. Prometheus configuration on `prometheus.yml`
 
 ```yaml
@@ -99,6 +101,8 @@ scrape_configs:
     static_configs:
       - targets: ['127.0.0.1:8080']
 ```
+
+Prometheus Container cannot access spring app address at local pc host. Because of it target address should be changed.
 
 - `targets`
   - `$ ifconfig en0 | awk '/inet / {print $2}'`
@@ -122,6 +126,17 @@ $ open http://localhost:9090/targets
 ![prom-graph-cpu-usage](images/prom-graph-cpu-usage.png)
 
 ### 3. Grafana
+
+Grafana offers a rich UI where you can build up custom graphs quickly. You can also import many community built dashboards.
+
+#### 3.1. Grafana Container
+
+```
+$ docker run --rm -d \
+--name=grafana \
+-p 3000:3000 \
+grafana/grafana:6.6.2
+```
 
 ## Features
 
