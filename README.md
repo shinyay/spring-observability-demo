@@ -97,6 +97,11 @@ prom/prometheus:v2.13.1 \
 --config.file=(pwd)/prometheus.yml
 ```
 
+```
+$ open http://localhost:9090/targets
+```
+![prometheus-target](images/prometheus-target.png)
+
 ## Features
 
 - feature:1
