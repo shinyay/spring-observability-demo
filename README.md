@@ -6,9 +6,11 @@ Overview
 
 ## Demo
 
-### Actuator
+### 1. Spring Actuator
 
-```application.yml
+Enable spring actuator endpoint on `application.yml`
+
+```yaml
 management:
   endpoints:
     web:
@@ -16,8 +18,10 @@ management:
         include: "*"
 ```
 
+#### 1.1. Actuator Endpoint
+
 ```
-$ curl -XGET http://localhost:8080/actuator|jq
+$ curl -XGET http://localhost:8080/actuator | jq
 
 {
   "_links": {
@@ -55,6 +59,8 @@ $ curl -XGET http://localhost:8080/actuator|jq
 }
 ```
 
+#### 1.2. Prometheus Endpoint for Actuator
+
 ```
 $ curl -XGET http://localhost:8080/actuator|jq .[].prometheus
 
@@ -63,6 +69,30 @@ $ curl -XGET http://localhost:8080/actuator|jq .[].prometheus
   "templated": false
 }
 ```
+
+### 2. Prometheus
+
+#### 2.1. Prometheus configuration on `prometheus.yml`
+
+```yaml
+scrape_configs:
+  - job_name: 'spring_micrometer'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['127.0.0.1:8080']
+```
+
+#### 2.2. Prometheus Container
+
+```
+$ docker run --rm -d \
+--name=prometheus \
+-p 9090:9090 \
+-v (pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
+prom/prometheus:v2.13.1 \
+--config.file=(pwd)/prometheus.yml
+```
+
 ## Features
 
 - feature:1
