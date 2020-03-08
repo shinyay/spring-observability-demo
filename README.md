@@ -82,6 +82,10 @@ scrape_configs:
       - targets: ['127.0.0.1:8080']
 ```
 
+- `targets`
+  - `$ ifconfig en0 | awk '/inet / {print $2}'`
+  - `$ ipconfig getifaddr en0`
+
 #### 2.2. Prometheus Container
 
 ```
