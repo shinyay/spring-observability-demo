@@ -8,7 +8,7 @@
 
 ## Demo
 
-### 1. Spring Boot Actuator
+### 1. Spring Boot Actuator / Micrometer
 
 Enable spring actuator endpoint on `application.yml`
 
@@ -67,7 +67,17 @@ $ curl -XGET http://localhost:8080/actuator | jq
 }
 ```
 
-#### 1.2. Prometheus Endpoint for Actuator
+#### 1.2. Micrometer
+Micrometer provides a vendor-neutral data provider, which exposes Actuator metrics to external sysytem such as Prometheus, Netflix Atlas and any more.
+
+```gradle
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("io.micrometer:micrometer-registry-prometheus:latest.release")
+}
+```
+
+#### 1.3. Prometheus Endpoint for Actuator
 
 ```
 $ curl -XGET http://localhost:8080/actuator|jq .[].prometheus
