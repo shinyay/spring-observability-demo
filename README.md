@@ -138,6 +138,10 @@ $ docker run --rm -d \
 grafana/grafana:6.6.2
 ```
 
+```
+$ open http://localhost:3000
+```
+
 ## Features
 
 - feature:1
