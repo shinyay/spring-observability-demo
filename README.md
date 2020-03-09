@@ -148,6 +148,8 @@ $ open http://localhost:3000
 |--------|--------|
 |admin|admin|
 
+![grafana-home](images/grafana-home.png)
+
 ## Features
 
 - feature:1
