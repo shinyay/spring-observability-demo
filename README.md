@@ -142,6 +142,12 @@ grafana/grafana:6.6.2
 $ open http://localhost:3000
 ```
 
+![grafana-login](images/grafana-login.png)
+
+|Username|Password|
+|--------|--------|
+|admin|admin|
+
 ## Features
 
 - feature:1
