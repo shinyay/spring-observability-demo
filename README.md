@@ -165,6 +165,12 @@ Select Prometheus.
 -[Grafana Dashboards](https://grafana.com/grafana/dashboards)
   - [JVM (Micrometer)](https://grafana.com/grafana/dashboards/4701)
 
+Set Dashboard ID.
+
+![grafana-import](images/grafana-import.png)
+![grafana-import-jvm](images/grafana-import-jvm.png)
+![grafana-jvm](images/grafana-jvm.png)
+
 - 
 ## Features
 
