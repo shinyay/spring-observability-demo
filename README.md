@@ -142,6 +142,8 @@ grafana/grafana:6.6.2
 $ open http://localhost:3000
 ```
 
+#### 3.2. Grafana Configuration
+
 ![grafana-login](images/grafana-login.png)
 
 |Username|Password|
@@ -149,6 +151,16 @@ $ open http://localhost:3000
 |admin|admin|
 
 ![grafana-home](images/grafana-home.png)
+
+Select Prometheus.
+
+![garafana-datasource](images/grafana-datasource.png)
+
+|URL|Access|
+|---|------|
+|http://localhost:9090|Browser|
+
+![grafana-prom-ds](images/grafana-prom-ds.png)
 
 ## Features
 
