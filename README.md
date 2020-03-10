@@ -70,6 +70,8 @@ $ curl -XGET http://localhost:8080/actuator | jq
 #### 1.2. Micrometer
 Micrometer provides a vendor-neutral data provider, which exposes Actuator metrics to external sysytem such as Prometheus, Netflix Atlas and any more.
 
+Micrometer Registry has various libraries for monitoring systems. You can select a library like `micrometer-registry-***`
+
 ```gradle
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
