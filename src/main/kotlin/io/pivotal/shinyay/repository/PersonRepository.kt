@@ -21,4 +21,18 @@ class PersonRepository {
         persons.add(person)
         return person
     }
+
+    fun findAll() = persons
+
+    fun findById(id: Int) = persons.singleOrNull { it.id == id }
+
+    fun update(person: Person): Person {
+        val index = persons.indexOfFirst { it.id == person.id }
+        if(index >= 0){
+            persons[index] = person
+        }
+        return person
+    }
+
+    fun removeById(id: Int) = persons.removeIf { it.id == id }
 }
