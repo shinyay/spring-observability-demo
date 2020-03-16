@@ -2,6 +2,9 @@ package io.pivotal.shinyay.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import springfox.documentation.builders.ApiInfoBuilder
+import springfox.documentation.service.ApiInfo
+import springfox.documentation.service.Contact
 import springfox.documentation.swagger.web.*
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 
@@ -43,5 +46,17 @@ class SwaggerConfig {
 //                UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS,
 //                null
 //        )
+    }
+
+    private fun apiInfo(): ApiInfo {
+        return ApiInfoBuilder()
+                .title("Person Service API")
+                .description("Persons Management")
+                .version("0.0.1")
+                .contact(Contact("name", "URL", "email"))
+                .license("license")
+                .licenseUrl("license URL")
+                .termsOfServiceUrl("term of service URL")
+                .build()
     }
 }
