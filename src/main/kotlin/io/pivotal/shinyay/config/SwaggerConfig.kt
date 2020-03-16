@@ -11,21 +11,37 @@ class SwaggerConfig {
 
     @Bean
     fun uiConfig(): UiConfiguration {
-        return UiConfiguration(
-                java.lang.Boolean.TRUE,
-                java.lang.Boolean.FALSE,
-                1,
-                1,
-                ModelRendering.MODEL,
-                java.lang.Boolean.FALSE,
-                DocExpansion.LIST,
-                java.lang.Boolean.FALSE,
-                null,
-                OperationsSorter.ALPHA,
-                java.lang.Boolean.FALSE,
-                TagsSorter.ALPHA,
-                UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS,
-                null
-        )
+        return UiConfigurationBuilder.builder()
+                .deepLinking(true)
+                .displayOperationId(true)
+                .defaultModelsExpandDepth(1)
+                .defaultModelExpandDepth(1)
+                .defaultModelRendering(ModelRendering.MODEL)
+                .displayRequestDuration(false)
+                .docExpansion(DocExpansion.LIST)
+                .filter(false)
+                .maxDisplayedTags(null)
+                .operationsSorter(OperationsSorter.ALPHA)
+                .showExtensions(false)
+                .tagsSorter(TagsSorter.ALPHA)
+                .supportedSubmitMethods(UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS)
+                .validatorUrl(null)
+                .build()
+//        return UiConfiguration(
+//                java.lang.Boolean.TRUE,
+//                java.lang.Boolean.FALSE,
+//                1,
+//                1,
+//                ModelRendering.MODEL,
+//                java.lang.Boolean.FALSE,
+//                DocExpansion.LIST,
+//                java.lang.Boolean.FALSE,
+//                null,
+//                OperationsSorter.ALPHA,
+//                java.lang.Boolean.FALSE,
+//                TagsSorter.ALPHA,
+//                UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS,
+//                null
+//        )
     }
 }
