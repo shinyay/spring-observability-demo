@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/persons")
 class PersonController(var repository: PersonRepository) {
 
-    @GetMapping("/")
+    @GetMapping
     fun findAll() = repository.findAll()
 
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Int) = repository.findById(id)
 
-    @PostMapping("/")
+    @PostMapping
     fun add(@RequestBody person: Person) = repository.save(person)
 
-    @PutMapping("/")
+    @PutMapping
     fun update(@RequestBody person: Person) = repository.update(person)
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Int) = repository.removeById(id)
 }
