@@ -1,5 +1,7 @@
 package io.pivotal.shinyay.config
 
+import org.springframework.boot.info.BuildProperties
+import org.springframework.boot.info.GitProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import springfox.documentation.builders.ApiInfoBuilder
@@ -11,10 +13,12 @@ import springfox.documentation.spi.DocumentationType
 import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.swagger.web.*
 import springfox.documentation.swagger2.annotations.EnableSwagger2
+import java.util.*
 
 @Configuration
 @EnableSwagger2
-class SwaggerConfig {
+class SwaggerConfig(var build: Optional<BuildProperties>,
+                    var git: Optional<GitProperties>) {
 
     @Bean
     fun api(): Docket {
@@ -65,10 +69,14 @@ class SwaggerConfig {
     }
 
     private fun apiInfo(): ApiInfo {
+        var version = "0.0.1"
+        if(build.isPresent && git.isPresent) {
+            version = "${build.get().version}-${git.get().shortCommitId}-${git.get().branch}"
+        }
         return ApiInfoBuilder()
                 .title("Person Service API")
                 .description("Persons Management")
-                .version("0.0.1")
+                .version(version)
                 .contact(Contact("name", "URL", "email"))
                 .license("license")
                 .licenseUrl("license URL")
